@@ -1,0 +1,53 @@
+// C program to demonstrate operations in tree data structure
+// Modify this sample program to build a tree with your student ID
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+int data;
+struct node *left;
+struct node *right;
+};
+/* newNode() allocates a new node with the given data and NULL left and
+right pointers. */
+struct node* newNode(int data) {
+// Allocate memory for new node
+struct node* node = (struct node*)malloc(sizeof(struct node));
+// Assign data to this node
+node->data = data;
+// Initialize left and right children as NULL
+node->left = NULL;
+node->right = NULL;
+return(node);
+}
+int main() {
+/*create root*/
+struct node *root = newNode(1);
+/* following is the tree after above statement
+1
+/ \
+NULL NULL
+*/root->left = newNode(5);
+root->right = newNode(0);
+/* 5 and 0 become left and right children of 1      16596
+1
+/ \
+5 0
+/ \ / \
+NULL NULL NULL NULL
+*/
+root->left->left = newNode(3);
+root->left->right = newNode(5);
+/* 9 becomes left child of 6 and 6 becoms right of 2
+1
+/ \
+6 5
+/ \ / \
+3 5 NULL NULL
+/ \
+NULL NULL
+*/
+
+getchar();
+ printf("%d%d%d%d%d\n",root->data,root->left->data,root->right->data,root->left->left->data,root->left->right->data);
+return 0;
+}
